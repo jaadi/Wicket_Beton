@@ -1,4 +1,4 @@
-package de.nj;
+package de.nj.betonWicket;
 
 import java.util.ArrayList;
 import java.util.List;

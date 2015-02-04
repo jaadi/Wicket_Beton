@@ -1,4 +1,4 @@
-package de.nj;
+package de.nj.betonWicket;
 
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
