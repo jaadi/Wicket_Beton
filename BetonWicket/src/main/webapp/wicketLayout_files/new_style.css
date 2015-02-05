@@ -1,32 +1,3 @@
-/**
- *  Licensed to the Apache Software Foundation (ASF) under one or more
- *  contributor license agreements.  See the NOTICE file distributed with
- *  this work for additional information regarding copyright ownership.
- *  The ASF licenses this file to You under the Apache License, Version 2.0
- *  (the "License"); you may not use this file except in compliance with
- *  the License.  You may obtain a copy of the License at
- *
- *       http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
- */
-/* Foglio di stile */
-/* ideato e creato da */
-/* Giacomo Socci */
-/* info@giacomosocci.it */
-
-/* tabella colori */
-/* verde: #7CBE29 */
-/* arancio: #F90 */
-/* blu: #69F */
-/* nero: #000 */
-/* rosa pastello: #FFC0B4*/
-
-
 body {
 	color: #333;
 	background-color: #FFF;
@@ -59,7 +30,7 @@ a img {
 h1 {
 	color: #F90;
 	font-size: 24px;
-	margin: 0px;	
+	margin: 0px;
 }
 
 h2 {
@@ -77,7 +48,6 @@ table, fieldset {
 	border: 1px solid #F90;
 }
 
-
 th {
 	text-align: left;
 }
@@ -87,19 +57,37 @@ th {
 	margin-top: 10px;
 }
 
-#intestazione {
-	border-bottom: 3px double #7CBE29;
-	
+#header {
+	width: 100%;
+	height: 87px;
+	background-color: #092E67;
+	margin-top: 0;
+	padding: 10px;
+	z-index: 0;
+	border-bottom: 3px double #F90;
 }
 
-#pagina {
+#header img {
+	width: 50px;
+	height: 50px;
+	margin-right: 10px;
+}
+
+#header table {
+	margin: auto;
+	padding: 5px;	
+	box-shadow: 10px 10px 5px #F90;
+	border-radius: 25px;
+}
+
+#pagecenter {
 	width: 100%;
 	clear: both;
 	float: left;
 	margin-bottom: 20px;
 }
 
-#piedipagina {
+#footer {
 	border-top: 2px solid #7CBE29;
 	width: 100%;
 	float: left;
@@ -108,7 +96,7 @@ th {
 	padding-top: 4px;
 }
 
-#piedipagina img {
+#footer img {
 	vertical-align: middle;
 }
 
@@ -118,8 +106,8 @@ th {
 	float: left;
 	background: url("../wicketLayout_files/sf_menu.png") repeat-x top #FFF;
 	border: 1px solid #7CBE29;
-    font-size: 12px;
-    margin: 10px;
+	font-size: 12px;
+	margin: 10px;
 }
 
 .barra_pulsanti {
@@ -149,6 +137,7 @@ th {
 .cellTable {
 	text-align: left;
 }
+
 .cellTable_alto {
 	font-size: 12px;
 	font-weight: bold;
@@ -184,7 +173,7 @@ th {
 	font-weight: bold;
 	color: #FFF;
 	text-align: center;
-    margin-top: 10px;
+	margin-top: 10px;
 }
 
 ul.menuItems {
@@ -198,7 +187,7 @@ ul.menuItems {
 	list-style-image: url("../img/arrow.gif");
 }
 
-.noBorder{
+.noBorder {
 	border: 0px;
 }
 
@@ -209,7 +198,6 @@ ul.menuItems {
 
 .odd:hover {
 	background-color: #E6FAE6;
-
 }
 
 .Onmouse {
@@ -263,12 +251,12 @@ ul.menuItems {
 }
 
 /*Riga evidenziata con rosa pastello.*/
-tr.endingAccoglienza{ 
-	font-weight: bold;
-	background-color: #FFC0B4;
-}
-tr.endingAccoglienza:hover{ 
+tr.endingAccoglienza {
 	font-weight: bold;
 	background-color: #FFC0B4;
 }
 
+tr.endingAccoglienza:hover {
+	font-weight: bold;
+	background-color: #FFC0B4;
+}
