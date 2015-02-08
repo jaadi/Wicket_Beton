@@ -1,11 +1,52 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
 <wicket:panel>
 
-<form wicket:id="userform2">
-	<input type="text" wicket:id="userName2"/> <br/>
-	<select wicket:id="gender2">
-	<option></option>
-	</select><br/>
-	<input type="submit" wicket:id="submit2" value="without ajax" /><br/>
-	<input type="submit" wicket:id="ajaxSubmit2" value="with ajax" />	
-	</form>
+	<form wicket:id="userform">
+
+		<table>
+			<tr>
+				<td>
+					<table>
+						<tr>
+							<td><input type="text" wicket:id="userName2" /></td>
+						</tr>
+						<tr>
+							<td><select wicket:id="gender2"><option></option>
+							</select></td>
+						</tr>
+						<tr>
+							<td><input type="submit" wicket:id="submit2"
+								value="submit without ajax" /></td>
+						</tr>
+						<tr>
+							<td><input type="submit" wicket:id="ajaxSubmit2"
+								value="submit with ajax" /></td>
+						</tr>
+					</table>
+				</td>
+
+				<td>
+					<table>
+						<tr>
+							<td><a class="small" wicket:id="viewLink"> show
+									modal window with label</a></td>
+						</tr>
+						<tr>
+							<td><a class="small" wicket:id="editLink"> show
+									modal window with tfield</a></td>
+						</tr>
+					</table>
+
+					<div wicket:id="simpleModalWindow"></div>
+				</td>
+				<td></td>
+			</tr>
+		</table>
+	</form>	
+
+	
 </wicket:panel>
+</html>

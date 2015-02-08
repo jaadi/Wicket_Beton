@@ -3,8 +3,12 @@ package de.nj.betonWicket;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.wicket.Page;
 import org.apache.wicket.ajax.AjaxRequestTarget;
+import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.ajax.markup.html.form.AjaxButton;
+import org.apache.wicket.extensions.ajax.markup.html.modal.ModalWindow;
+import org.apache.wicket.extensions.ajax.markup.html.modal.ModalWindow.WindowClosedCallback;
 import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.Form;
@@ -14,63 +18,127 @@ import org.apache.wicket.model.PropertyModel;
 
 import de.nj.model.User;
 
-public class FormWrapperPanel extends Panel{
+public class FormWrapperPanel extends Panel {
 
 	private static final long serialVersionUID = 1L;
 	private List<String> genderChoises = new ArrayList<String>();
+	private String action;
 
 	public FormWrapperPanel(String id) {
 		super(id);
-		
+
 		genderChoises.add("male");
 		genderChoises.add("female");
-		final User user = new User();
+
+		Form<String> form = createForm();
+		add(form);
+	}
+
+	private ModalWindow createModalWindow() {
+
+		ModalWindow modalWindow = new ModalWindow("simpleModalWindow");
+		modalWindow.setTitle("modal window");
+		modalWindow.setInitialWidth(200);
+		modalWindow.setInitialHeight(200);
+		modalWindow.setPageCreator(new ModalWindow.PageCreator() {
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public Page createPage() {
+				return new SimpleModalWindow(action);
+			}
+		});
 		
-		Form<String> form = new Form<String>("userform2");
+		modalWindow.setWindowClosedCallback(new WindowClosedCallback() {			
+			
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void onClose(AjaxRequestTarget arg0) {
+				
+				System.out.println("modal window closed !!");				
+			}
+		});
+
+		return modalWindow;
+	}
+
+	private AjaxLink<String> createModalWindowLink(final ModalWindow modalWindow,final String id) {
+		
+		
+			
+			AjaxLink<String> ajaxLink = new AjaxLink<String>(id) {
+				
+				private static final long serialVersionUID = 1L;
+				@Override
+				public void onClick(AjaxRequestTarget target) {					
+					action = id;
+					modalWindow.show(target);
+				}
+			};
+
+			return ajaxLink;
+
+	}
+
+	private Form<String> createForm() {
+
+		final User user = new User();
+		Form<String> form = new Form<String>("userform");
 
 		final TextField<String> tfield = new TextField<String>("userName2",
 				new PropertyModel<String>(user, "uName"));
 		tfield.setOutputMarkupId(true);
-		final DropDownChoice<String> ddchoise = new DropDownChoice<String>("gender2",
-				new PropertyModel<String>(user, "uGender"), genderChoises);
+		final DropDownChoice<String> ddchoise = new DropDownChoice<String>(
+				"gender2", new PropertyModel<String>(user, "uGender"),
+				genderChoises);
 		ddchoise.setOutputMarkupId(true);
-		
-		Button button = new Button("submit2"){			
-			
+
+		Button button = new Button("submit2") {
+
 			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void onSubmit() {
-				
+
 				super.onSubmit();
-				System.out.println("user name :"+ user.getuName());
-				System.out.println("user gender :"+user.getuGender());
+				System.out.println("user name :" + user.getuName());
+				System.out.println("user gender :" + user.getuGender());
 			}
 		};
-		
+
 		AjaxButton ajaxButton = new AjaxButton("ajaxSubmit2") {
-			
+
 			private static final long serialVersionUID = 1L;
 
 			@Override
 			protected void onSubmit(AjaxRequestTarget target, Form<?> form) {
-				
+
 				super.onSubmit(target, form);
 				tfield.setEnabled(false);
 				ddchoise.setEnabled(false);
-				
+
 				target.add(tfield);
 				target.add(ddchoise);
 			}
 		};
-		
-		add(form);
+
 		form.add(tfield);
 		form.add(ddchoise);
 		form.add(button);
 		form.add(ajaxButton);
 
+		ModalWindow modalWindow = createModalWindow();
+
+		AjaxLink<String> labelmodalWindowLink = createModalWindowLink(modalWindow,"viewLink");
+		form.add(labelmodalWindowLink);
+		AjaxLink<String> textfieldmodalWindowLink = createModalWindowLink(modalWindow,"editLink");
+		form.add(textfieldmodalWindowLink);
 		
+		form.add(modalWindow);
+
+		return form;
+
 	}
 
 }

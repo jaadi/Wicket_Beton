@@ -53,15 +53,18 @@ th {
 }
 
 #Content {
+	border: 1px solid #F90;
+	border-radius: 15px;
 	margin-left: 200px;
 	margin-top: 10px;
+	padding: 20px;
 }
 
 #header {
 	width: 100%;
 	height: 87px;
 	background-color: #092E67;
-	margin-top: 0;
+	margin-bottom: 5px;
 	padding: 10px;
 	z-index: 0;
 	border-bottom: 3px double #F90;
@@ -76,8 +79,9 @@ th {
 #header table {
 	margin: auto;
 	padding: 5px;	
-	box-shadow: 10px 10px 5px #F90;
-	border-radius: 25px;
+	/*box-shadow: 10px 10px 5px #F90;*/
+	border-radius: 15px;
+	background-color: #092E67;
 }
 
 #pagecenter {
@@ -88,7 +92,7 @@ th {
 }
 
 #footer {
-	border-top: 2px solid #7CBE29;
+	border-top: 2px solid #F90;
 	width: 100%;
 	float: left;
 	background-color: #FFF;
@@ -100,12 +104,18 @@ th {
 	vertical-align: middle;
 }
 
+#logos td{
+	
+	padding: 15px;
+}
+
 #Menu {
 	width: 170px;
-	height: 300px;
+	height: 500px;
 	float: left;
-	background: url("../wicketLayout_files/sf_menu.png") repeat-x top #FFF;
-	border: 1px solid #7CBE29;
+/*	background: url("../wicketLayout_files/sf_menu.png") repeat-x top #FFF;*/
+	border: 1px solid #F90;
+	border-radius: 15px;
 	font-size: 12px;
 	margin: 10px;
 }
@@ -223,7 +233,7 @@ ul.menuItems {
 	margin: 5px;
 }
 
-.piccolo {
+.small {
 	font-size: 11px;
 }
 
