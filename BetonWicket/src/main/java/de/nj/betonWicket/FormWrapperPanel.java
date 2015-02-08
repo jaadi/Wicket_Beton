@@ -63,9 +63,7 @@ public class FormWrapperPanel extends Panel {
 		return modalWindow;
 	}
 
-	private AjaxLink<String> createModalWindowLink(final ModalWindow modalWindow,final String id) {
-		
-		
+	private AjaxLink<String> createModalWindowLink(final ModalWindow modalWindow,final String id) {		
 			
 			AjaxLink<String> ajaxLink = new AjaxLink<String>(id) {
 				
@@ -130,9 +128,9 @@ public class FormWrapperPanel extends Panel {
 
 		ModalWindow modalWindow = createModalWindow();
 
-		AjaxLink<String> labelmodalWindowLink = createModalWindowLink(modalWindow,"viewLink");
+		AjaxLink<String> labelmodalWindowLink = createModalWindowLink(modalWindow,"view");
 		form.add(labelmodalWindowLink);
-		AjaxLink<String> textfieldmodalWindowLink = createModalWindowLink(modalWindow,"editLink");
+		AjaxLink<String> textfieldmodalWindowLink = createModalWindowLink(modalWindow,"edit");
 		form.add(textfieldmodalWindowLink);
 		
 		form.add(modalWindow);

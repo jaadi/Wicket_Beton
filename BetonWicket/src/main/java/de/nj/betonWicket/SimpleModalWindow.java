@@ -20,21 +20,21 @@ public class SimpleModalWindow extends WebPage {
 
 	private void addComponents() {
 
-		//Form<?> form = new Form<Object>("form");		
-//		Fragment fragment;
-//		
-//		if (action.equals("labelmodalWindowLink")) {
-//			fragment = new Fragment("fragmentsContainer", "viewFragment", this);
-//			fragment.add(new Label("fragmentLabel", new Model<String>(
-//					" i'm a simple label !")));
-//		} else {
-//			fragment = new Fragment("fragmentsContainer",
-//					"editFragment", this);
-//			fragment.add(new TextField<String>("fragmentTextfield", new Model<String>(" i'm a simple label !")));
-//		}
-//		
-//		form.add(fragment);
-		//add(form);
+		Form<?> form = new Form<Object>("modalForm");		
+		Fragment fragment;
+	
+		if (action.equals("view")) {
+			fragment = new Fragment("container", "viewFragment", this);
+			fragment.add(new Label("labelInfragment", new Model<String>(
+					" i'm a simple label !")));
+		} else {
+			fragment = new Fragment("container",
+					"editFragment", this);
+			fragment.add(new TextField<String>("textfieldInFragment", new Model<String>(" i'm a simple label !")));
+		}
+		
+		form.add(fragment);
+		add(form);
 		
 
 	}
