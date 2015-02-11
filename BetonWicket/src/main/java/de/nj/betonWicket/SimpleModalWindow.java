@@ -30,7 +30,7 @@ public class SimpleModalWindow extends WebPage {
 		} else {
 			fragment = new Fragment("container",
 					"editFragment", this);
-			fragment.add(new TextField<String>("textfieldInFragment", new Model<String>(" i'm a simple label !")));
+			fragment.add(new TextField<String>("textfieldInFragment", new Model<String>(" i'm a textfield.edit me!")));
 		}
 		
 		form.add(fragment);
