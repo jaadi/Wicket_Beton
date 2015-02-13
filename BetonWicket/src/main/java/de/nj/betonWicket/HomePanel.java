@@ -13,24 +13,30 @@ import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
+import org.apache.wicket.markup.html.link.BookmarkablePageLink;
+import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.PropertyModel;
 
+
+
+
+
 import de.nj.model.User;
 
-public class FormWrapperPanel extends Panel {
+public class HomePanel extends Panel {
 
 	private static final long serialVersionUID = 1L;
 	private List<String> genderChoises = new ArrayList<String>();
 	private String action;
 
-	public FormWrapperPanel(String id) {
+	public HomePanel(String id) {
 		super(id);
 
 		genderChoises.add("male");
 		genderChoises.add("female");
 
-		Form<String> form = createForm();
+		Form<String> form = createForm("userform");
 		add(form);
 	}
 
@@ -48,41 +54,24 @@ public class FormWrapperPanel extends Panel {
 				return new SimpleModalWindow(action);
 			}
 		});
-		
-		modalWindow.setWindowClosedCallback(new WindowClosedCallback() {			
-			
+
+		modalWindow.setWindowClosedCallback(new WindowClosedCallback() {
+
 			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void onClose(AjaxRequestTarget arg0) {
-				
-				System.out.println("modal window closed !!");				
+
 			}
 		});
 
 		return modalWindow;
 	}
 
-	private AjaxLink<String> createModalWindowLink(final ModalWindow modalWindow,final String id) {		
-			
-			AjaxLink<String> ajaxLink = new AjaxLink<String>(id) {
-				
-				private static final long serialVersionUID = 1L;
-				@Override
-				public void onClick(AjaxRequestTarget target) {					
-					action = id;
-					modalWindow.show(target);
-				}
-			};
-
-			return ajaxLink;
-
-	}
-
-	private Form<String> createForm() {
+	private Form<String> createForm(String id) {
 
 		final User user = new User();
-		Form<String> form = new Form<String>("userform");
+		Form<String> form = new Form<String>(id);
 
 		final TextField<String> tfield = new TextField<String>("userName2",
 				new PropertyModel<String>(user, "uName"));
@@ -128,14 +117,35 @@ public class FormWrapperPanel extends Panel {
 
 		ModalWindow modalWindow = createModalWindow();
 
-		AjaxLink<String> labelmodalWindowLink = createModalWindowLink(modalWindow,"view");
+		AjaxLink<String> labelmodalWindowLink = createModalWindowLink(
+				modalWindow, "view");
 		form.add(labelmodalWindowLink);
-		AjaxLink<String> textfieldmodalWindowLink = createModalWindowLink(modalWindow,"edit");
+		AjaxLink<String> textfieldmodalWindowLink = createModalWindowLink(
+				modalWindow, "edit");
 		form.add(textfieldmodalWindowLink);
-		
+
 		form.add(modalWindow);
+		
+		form.add(new BookmarkablePageLink<Void>("nextPage", ModelsDemoPage.class));
 
 		return form;
+	}
+
+	private AjaxLink<String> createModalWindowLink(
+			final ModalWindow modalWindow, final String id) {
+
+		AjaxLink<String> ajaxLink = new AjaxLink<String>(id) {
+
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void onClick(AjaxRequestTarget target) {
+				action = id;
+				modalWindow.show(target);
+			}
+		};
+
+		return ajaxLink;
 
 	}
 

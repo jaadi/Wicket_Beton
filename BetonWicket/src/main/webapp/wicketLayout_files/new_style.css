@@ -195,6 +195,7 @@ ul.menuItems {
 	height: 25px;
 	list-style: none;
 	list-style-image: url("../img/arrow.gif");
+	list-style-type: circle;
 }
 
 .noBorder {
@@ -211,8 +212,7 @@ ul.menuItems {
 }
 
 .Onmouse {
-	color: navy;
-	color: #000;
+	color: navy;	
 	text-align: left;
 	margin-left: 0px;
 	margin-right: 0px;

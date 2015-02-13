@@ -9,7 +9,6 @@ public class MainPage extends SimpleTemplate {
 	public MainPage() {
 		
 		super();	
-		replace(new FormWrapperPanel(CONTENT_ID));
-		
+		replace(new HomePanel(CONTENT_ID));		
 	}
 }

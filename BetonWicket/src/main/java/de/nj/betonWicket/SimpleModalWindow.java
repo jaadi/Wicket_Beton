@@ -13,7 +13,6 @@ public class SimpleModalWindow extends WebPage {
 	private String action;
 
 	public SimpleModalWindow(String cAction) {
-
 		this.action = cAction;
 		addComponents();		
 	}
