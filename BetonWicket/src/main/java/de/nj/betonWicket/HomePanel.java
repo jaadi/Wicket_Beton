@@ -126,8 +126,6 @@ public class HomePanel extends Panel {
 
 		form.add(modalWindow);
 		
-		form.add(new BookmarkablePageLink<Void>("nextPage", ModelsDemoPage.class));
-
 		return form;
 	}
 
