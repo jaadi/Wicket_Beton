@@ -46,6 +46,7 @@ h2.sottotitolo {
 table, fieldset {
 	background: #F4F4F4;
 	border: 1px solid #F90;
+	width: 100%;
 }
 
 th {
@@ -181,14 +182,15 @@ th {
 
 .menuTitle {
 	font-weight: bold;
-	color: #FFF;
+	color: #f90;
 	text-align: center;
 	margin-top: 10px;
 }
 
 ul.menuItems {
 	margin: 20px 0px;
-	padding-left: 20px;
+	padding-left: 20px
+	
 }
 
 .menuItems li {

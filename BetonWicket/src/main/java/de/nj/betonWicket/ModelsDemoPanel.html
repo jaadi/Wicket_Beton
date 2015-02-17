@@ -1,2 +1,27 @@
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
 
-<wicket:panel xmlns:wicket="http://wicket.apache.org"></wicket:panel>
+	<table width="100%">
+		<tr>
+			<td><b>simple model</b> generating time stamp dynamically :</td>
+			<td><span wicket:id="todaydate"></span></td>
+		</tr>
+		<tr>
+			<td><b>PropertyModel</b> access bean data with property
+				expressions :</td>
+			<td>the person name is :<span wicket:id="personname"></span> <br>
+				his spouse name is :<span wicket:id="personspouse"></span> <br>
+				his second child name is :<span wicket:id="personsecondchildname"></span>
+
+			</td>
+		</tr>
+		<tr>
+			<td><b>CompoundPropertyModel</b> labels uses model of parent
+				container:</td>
+			<td>the person email is :<span wicket:id="email"></span>
+			</td>
+		</tr>
+	</table>
+
+
+
+</wicket:panel>
