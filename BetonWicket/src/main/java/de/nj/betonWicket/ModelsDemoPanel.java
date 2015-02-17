@@ -1,10 +1,8 @@
 package de.nj.betonWicket;
 
-import java.awt.List;
 import java.util.ArrayList;
 import java.util.Date;
 
-import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.CompoundPropertyModel;
@@ -32,6 +30,8 @@ public class ModelsDemoPanel extends Panel {
 		person.setEmail("bla@tx.com");
 		add(new Label("email"));
 		
+		ExampleBorder exampleBorder = new ExampleBorder("exampleBorder");
+		add(exampleBorder);		
 	}
 
 	
